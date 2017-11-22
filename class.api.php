@@ -104,4 +104,54 @@ class campingcare_api {
 
 	}
 
+	function get_calculate_price($id, $data){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No accommodation ID found");
+		};
+
+		return $this->make_api_request("/accommodations/".$id."/calculate_price", $data);
+
+	}
+
+
+	function get_reservations(){
+
+		return $this->make_api_request("/reservations");
+
+	}
+
+	function get_reservation($id){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No reservation ID found");
+		};
+
+		return $this->make_api_request("/reservations/".$id);
+
+	}
+
+	function create_reservation($data){
+
+		return $this->make_api_request("/reservations/create/", $data);
+
+	}
+
+
+	function get_prices($accommodation_id){
+
+		return $this->make_api_request("/prices/".$accommodation_id);
+
+	}
+
+	function get_price($price_id){
+
+		return $this->make_api_request("/price/". $price_id);
+
+	}
+
 }
