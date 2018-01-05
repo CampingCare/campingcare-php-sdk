@@ -62,7 +62,7 @@ class campingcare_api {
 			};
 
 			// the response is an error message
-			throw new Exception($response); 
+			throw new Exception($response->code . ": ". $response->message); 
 
 		}elseif($httpcode == '404'){
 
@@ -117,9 +117,9 @@ class campingcare_api {
 	}
 
 
-	function get_reservations(){
+	function get_reservations($data){
 
-		return $this->make_api_request("/reservations");
+		return $this->make_api_request("/reservations", $data);
 
 	}
 
@@ -142,15 +142,60 @@ class campingcare_api {
 	}
 
 
-	function get_prices($accommodation_id){
+	function get_prices($id){
 
-		return $this->make_api_request("/prices/".$accommodation_id);
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No accommodation ID found");
+		};
+
+		return $this->make_api_request("/prices/".$id);
 
 	}
 
-	function get_price($price_id){
+	function get_price($id){
 
-		return $this->make_api_request("/price/". $price_id);
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No price ID found");
+		};
+		return $this->make_api_request("/price/". $id);
+
+	}
+
+	function get_invoices($data){
+
+		return $this->make_api_request("/invoicing/", $data);
+
+	}
+
+	function get_invoice($id){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No invoice ID found");
+		};
+		return $this->make_api_request("/invoicing/". $id);
+
+	}
+
+	function get_contacts($data){
+
+		return $this->make_api_request("/contacts/", $data);
+
+	}
+
+	function get_contact($id){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No contact ID found");
+		};
+		return $this->make_api_request("/contacts/". $id);
 
 	}
 
