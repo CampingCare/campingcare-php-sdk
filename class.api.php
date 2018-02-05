@@ -137,6 +137,8 @@ class campingcare_api {
 
 	function create_reservation($data){
 
+		$data['age_table_input'] = json_encode($data['age_table_input']);
+
 		return $this->make_api_request("/reservations/create/", $data);
 
 	}
