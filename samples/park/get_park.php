@@ -12,7 +12,7 @@ try {
     *
     * See: https://camping.care/settings/api
     */
-	include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
+	require_once dirname(__FILE__) . '/../../src/campingcare/Autoloader.php';
 
 	$campingcare = new campingcare_api ;
 	$campingcare->set_api_key('xy/1JRxLIiwpNWfYnvIgHbx+gNUF34bS67mZ7uD+2lqys+reyMqWvUn/wNnNzs1818ZLf8DKVMJ3mP6f2mpU7Q==');
