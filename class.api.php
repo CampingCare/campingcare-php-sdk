@@ -3,9 +3,9 @@
 class campingcare_api {
 
 	var $api_key ; 
+	//var $api_url = "https://camping.care/api/v1" ; 
 	var $api_url = "http://localhost:8084/api/v1" ; 
 
-	//'http://localhost:8084/api/accommodations' 
 
 	// change the api key variable to the users input
 	function set_api_key($api_key){
@@ -74,6 +74,30 @@ class campingcare_api {
 
 	}
 
+	function get_park(){
+
+		return $this->make_api_request("/park");
+
+	}
+
+	function get_age_tables(){
+
+		return $this->make_api_request("/park/age_tables");
+
+	}
+
+	function get_cards(){
+
+		return $this->make_api_request("/park/cards");
+
+	}
+
+	function get_vat_groups(){
+
+		return $this->make_api_request("/park/vat_groups");
+
+	}
+
 	function get_accommodations(){
 
 		return $this->make_api_request("/accommodations");
@@ -113,6 +137,18 @@ class campingcare_api {
 		};
 
 		return $this->make_api_request("/accommodations/".$id."/calculate_price", $data);
+
+	}
+
+	function get_options($id, $data){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No accommodation ID found");
+		};
+
+		return $this->make_api_request("/accommodations/".$id."/options", $data);
 
 	}
 

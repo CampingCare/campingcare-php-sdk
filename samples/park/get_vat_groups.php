@@ -1,11 +1,10 @@
 <?php
-
 /*
-* Example get accommodations - How to get all accommodations data from the Camping.care API
-* https://camping.care/developer/accommodations/get_accommodations
+* Example get vat groups - How to get vat group information from the Camping.care API
+* https://camping.care/developer/park/get_vat_groups
 */
-
 try {
+
 
 	/*
     * Initialize the Camping.care API SDK with your API key.
@@ -25,19 +24,17 @@ try {
     */
 
 	/*
-	* All data is returned in a accommodations object
-	* The structure can be found here: https://camping.care/developer/accommodations/get_accommodations.
+	* All data is returned in a vat groups opject
+	* The structure can be found here: https://camping.care/developer/park/get_vat_groups.
 	*/
-
-
-    $accommodations = $campingcare->get_accommodations();
+    $vat_groups = $campingcare->get_vat_groups();
 
     /*
      * In this example we print the oprions in json format on the page
     */
-    echo "List of accommodations";
+    echo "Vat group data";
     echo "<pre>";
-    echo json_encode($accommodations, JSON_PRETTY_PRINT);
+    echo json_encode($vat_groups, JSON_PRETTY_PRINT);
     echo "</pre>";
 
 

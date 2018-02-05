@@ -1,11 +1,11 @@
 <?php
-
 /*
-* Example get accommodations - How to get all accommodations data from the Camping.care API
-* https://camping.care/developer/accommodations/get_accommodations
-*/
+ * Example get age tables - How to get age table information from the Camping.care API
+ * https://camping.care/developer/park/get_age_tables
+ */
 
 try {
+
 
 	/*
     * Initialize the Camping.care API SDK with your API key.
@@ -24,20 +24,21 @@ try {
     *
     */
 
+
+
 	/*
-	* All data is returned in a accommodations object
-	* The structure can be found here: https://camping.care/developer/accommodations/get_accommodations.
+	* All data is returned in a age table opject
+	* The structure can be found here: https://camping.care/developer/park/get_age_tables.
 	*/
 
+    $age_tables = $campingcare->get_age_tables();
 
-    $accommodations = $campingcare->get_accommodations();
-
-    /*
+	/*
      * In this example we print the oprions in json format on the page
     */
-    echo "List of accommodations";
+    echo "Age table data";
     echo "<pre>";
-    echo json_encode($accommodations, JSON_PRETTY_PRINT);
+    echo json_encode($age_tables, JSON_PRETTY_PRINT);
     echo "</pre>";
 
 

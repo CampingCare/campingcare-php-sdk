@@ -1,13 +1,18 @@
 <?php
 
 ?>
-
+<h1>Park</h1>
+<a href="/samples/park/get_park.php"><?php echo 'Get Park' ; ?></a><br>
+<a href="/samples/park/get_age_tables.php"><?php echo 'Get age tables' ; ?></a><br>
+<a href="/samples/park/get_cards.php"><?php echo 'Get cards' ; ?></a><br>
+<a href="/samples/park/get_vat_groups.php"><?php echo 'Get vat groups' ; ?></a><br>
 
 <h1>Accommodations</h1>
 <a href="/samples/accommodations/get_accommodations.php"><?php echo 'Get accommodations' ; ?></a><br>
 <a href="/samples/accommodations/get_accommodation.php"><?php echo 'Get accommodation' ; ?></a><br>
 <a href="/samples/accommodations/get_availability.php"><?php echo 'Get availability' ; ?></a><br>
 <a href="/samples/accommodations/get_calculate_price.php"><?php echo 'Get calculate price' ; ?></a><br>
+<a href="/samples/accommodations/get_options.php"><?php echo 'Get options' ; ?></a><br>
 
 <h1>Prices</h1>
 <a href="/samples/prices/get_prices.php"><?php echo 'Get prices' ; ?></a><br>
