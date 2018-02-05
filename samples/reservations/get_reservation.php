@@ -14,9 +14,9 @@ try{
     * See: https://camping.care/settings/api
     */
 
-	include_once($_SERVER['DOCUMENT_ROOT']. '/autoloader.php');
+    require_once dirname(__FILE__) . '/../../src/campingcare/Autoloader.php';
 
-	$campingcare = new campingcare_api ;
+    $campingcare = new campingcare_api ;
 	$campingcare->set_api_key('YOUR API KEY');
 
 	/*
