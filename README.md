@@ -25,7 +25,7 @@ By far the easiest way to install the Camping.care PHP SDK is to require it with
 
     {
         "require": {
-            "CampingCare/campingcare-php-sdk": "master"
+            "CampingCare/campingcare-php-sdk": "dev-master"
         }
     }
 
@@ -44,7 +44,7 @@ Initializing the Camping.care PHP SDK, and setting your API key.
 ```php
 $campingcare = new campingcare_api;
 $campingcare->set_api_key("YOUR SECRET API KEY");
-``` 
+```
 
 Getting park information.
 

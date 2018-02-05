@@ -43,11 +43,13 @@ class CampingCare_Autoloader
 		if (strpos($class_name, "CampingCare_") === 0)
 		{
 			$file_name = str_replace("_", "/", $class_name);
-			$file_name = realpath(dirname(__FILE__) . "/../../{$file_name}.php");
+			$file_name = realpath(dirname(__FILE__) . "/../{$file_name}.php");
 			if ($file_name !== false)
 			{
+
 				require $file_name;
 			}
+			syslog(LOG_INFO, $file_name);
 		}
 	}
 	/**

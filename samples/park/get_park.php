@@ -17,7 +17,6 @@ try {
 	$campingcare = new CampingCare_Client ;
 	$campingcare->set_api_key('YOUR API KEY');
 
-
 	/*
     * Parameters:
     * None

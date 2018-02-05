@@ -34,13 +34,16 @@
 class CampingCare_Client {
 
 	var $api_key ;
-	//var $api_url = "https://camping.care/api/v1" ; 
-	var $api_url = "http://localhost:8084/api/v1" ; 
+	var $api_url = "https://camping.care/api/v1" ; 
 
 
 	// change the api key variable to the users input
 	function set_api_key($api_key){
 		$this->api_key = $api_key ;
+	}
+
+	function set_api_url($api_url){
+		$this->api_url = $api_url ;
 	}
 
 	// make a request with the an endpoint at campingcare

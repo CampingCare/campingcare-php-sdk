@@ -23,6 +23,7 @@
 <a href="/samples/reservations/get_reservation.php"><?php echo 'Get reservation' ; ?></a><br>
 <a href="/samples/reservations/get_calculate_price.php"><?php echo 'Get calculate price' ; ?></a><br>
 <a href="/samples/reservations/create_reservation.php"><?php echo 'Create reservation' ; ?></a>
+<a href="/samples/reservations/update_reservation.php"><?php echo 'Update reservation' ; ?></a>
 
 <h1>Invoices</h1>
 <a href="/samples/invoicing/get_invoices.php"><?php echo 'Get invoices' ; ?></a><br>
