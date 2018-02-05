@@ -1,17 +1,43 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']. '/autoloader.php');
+/*
+* Example get contacts - How to get a list of contacts from the Camping.care API
+* https://camping.care/developer/contacts/get_contacts
+*/
 
-$campingcare = new campingcare_api ;
-$campingcare->set_api_key('YOUR API KEY');
-
-// GET CONTACTS
 try{
 
+	/*
+    * Initialize the Camping.care API SDK with your API key.
+    *
+    * See: https://camping.care/settings/api
+    */
+
+    include_once($_SERVER['DOCUMENT_ROOT']. '/autoloader.php');
+
+	$campingcare = new campingcare_api ;
+	$campingcare->set_api_key('YOUR API KEY');
+
+
+    /*
+    * Parameters:
+    *   filter    		The filter can be used to filter the contact list on name, you can use the '%' to get all contacts (required)
+    *
+    */
+
 	$data = array();
-	$data["filter"] = "%"; // start characters of search string
+	$data["filter"] = "%"; // start characters of search string (required)
+
+	/*
+     * All data is returned in a contact opject
+     * The structure can be found here: https://camping.care/developer/contacts/get_contact.
+     */
 
 	$contacts= $campingcare->get_contacts($data);
+
+	/*
+    * In this example we print the oprions in json format on the page
+    */
 
     echo "Contacts";
     echo "<pre>";
