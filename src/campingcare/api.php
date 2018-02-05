@@ -26,7 +26,7 @@
  * DAMAGE.
  *
  * @license     Berkeley Software Distribution License (BSD-License 2) http://www.opensource.org/licenses/bsd-license.php
- * @author      Boekanders B.V. <info@mollie.com>
+ * @author      Boekanders B.V. <support@camping.care>
  * @copyright   Boekanders B.V.
  * @link        https://camping.care
  */
@@ -207,7 +207,7 @@ class campingcare_api {
 
 	function create_reservation($data){
 
-		return $this->make_api_request("/reservations/create/", $data);
+		return $this->make_api_request("/reservations", $data);
 
 	}
 
@@ -265,7 +265,13 @@ class campingcare_api {
 		if(!$id){
 			throw new Exception("No contact ID found");
 		};
-		return $this->make_api_request("/contacts/". $id);
+		return $this->make_api_request("/contacts". $id);
+
+	}
+
+	function create_contact($data){
+
+		return $this->make_api_request("/contacts", $data);
 
 	}
 

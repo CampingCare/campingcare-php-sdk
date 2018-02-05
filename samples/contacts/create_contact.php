@@ -3,12 +3,12 @@
 
 /*
 * Example get contacts - How to get a specific contacts from the Camping.care API
-* https://camping.care/developer/contacts/get_contact
+* https://camping.care/developer/contacts/create_contact
 */
-require_once('vendor/autoload.php');
+require_once dirname(__FILE__) . '/../../src/campingcare/Autoloader.php';
 
-$campingcare = new CampingCare_Client ;
-$campingcare->set_api_key("YOUR SECRET API KEY");
+$campingcare = new campingcare_api ;
+$campingcare->set_api_key('YOUR API KEY');
 
 try{
 
