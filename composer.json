@@ -1,0 +1,23 @@
+{
+    "name": "campingcare/campingcare-php-sdk",
+    "description": "Connect to the Camping.care system to get data. This could be park, accommodation, prices, availability, reservations, invoicing and contact data. Also you can create reservations, and contact.",
+    "homepage": "https://github.com/CampingCare/campingcare-php-sdk",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Boekanders B.V.",
+            "email": "support@camping.care"
+        }
+    ],
+    "keywords": [
+      "campingcare", "camping", "camping.care", "bungalow", "reservering", "reservation"
+    ],
+    "require" : {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "CampingCare": "src/"
+        }
+    }
+}
