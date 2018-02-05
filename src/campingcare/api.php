@@ -31,7 +31,7 @@
  * @link        https://camping.care
  */
 
-class CampingCare_Client {
+class campingcare_api {
 
 	var $api_key ;
 	var $api_url = "https://camping.care/api/v1" ; 

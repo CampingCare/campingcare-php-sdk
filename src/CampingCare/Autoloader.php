@@ -33,14 +33,14 @@
  */
 
 
-class CampingCare_Autoloader
+class campingcare_autoloader
 {
 	/**
 	 * @param string $class_name
 	 */
 	public static function autoload ($class_name)
 	{
-		if (strpos($class_name, "CampingCare_") === 0)
+		if (strpos($class_name, "campingcare_") === 0)
 		{
 			$file_name = str_replace("_", "/", $class_name);
 			$file_name = realpath(dirname(__FILE__) . "/../{$file_name}.php");
@@ -69,6 +69,6 @@ class CampingCare_Autoloader
 }
 
 
-CampingCare_Autoloader::register();
+campingcare_autoloader::register();
 
 

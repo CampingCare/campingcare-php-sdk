@@ -14,7 +14,7 @@ try {
 
 	include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
 
-    $campingcare = new CampingCare_Client ;
+    $campingcare = new campingcare_api ;
 	$campingcare->set_api_key('YOUR API KEY');
 
 	/*
