@@ -12,9 +12,9 @@ try {
     *
     * See: https://camping.care/settings/api
     */
-	include_once($_SERVER['DOCUMENT_ROOT']. '/autoloader.php');
+	include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
 
-	$campingcare = new campingcare_api ;
+	$campingcare = new CampingCare_Client ;
 	$campingcare->set_api_key('YOUR API KEY');
 
 

@@ -16,8 +16,6 @@ To use the Camping.care PHP SDK, the following things are required:
 + Now you're ready to use the Camping.care PHP API client in test mode.
 + PHP >= 5.3
 + PHP cURL extension
-+ Up-to-date OpenSSL (or other SSL/TLS toolkit)
-+ SSL v3 disabled. Mollie does not support SSL v3 anymore.
 
 ## Installation ##
 
