@@ -34,6 +34,10 @@ try {
 
     $cards = $campingcare->get_cards();
 
+    /*
+    * In this example we print the data in json format on the page
+    */
+
     echo "Card data";
     echo "<pre>";
     echo json_encode($cards, JSON_PRETTY_PRINT);

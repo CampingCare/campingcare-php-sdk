@@ -13,7 +13,7 @@ try{
     * See: https://camping.care/settings/api
     */
 
-    include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
+    require_once dirname(__FILE__) . '/../../src/campingcare/Autoloader.php';
 
     $campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
@@ -65,10 +65,10 @@ try{
     $created_reservation = $campingcare->create_reservation($data);
 
     /*
-    * In this example we print the oprions in json format on the page
+    * In this example we print the data in json format on the page
     */
 
-
+    echo "Reservation";
     echo "<pre>";
     echo json_encode($created_reservation, JSON_PRETTY_PRINT);
     echo "</pre>";

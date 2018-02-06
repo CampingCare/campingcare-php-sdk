@@ -37,7 +37,7 @@ try {
     $reservations = $campingcare->get_reservations($data); 
 
     /*
-    * In this example we print the oprions in json format on the page
+    * In this example we print the data in json format on the page
     */
 
     echo "Get reservations between dates";
