@@ -1,14 +1,9 @@
 <?php
 
 /*
-<<<<<<< HEAD:samples/accommodations/get_calculate_price.php
-* Example get calculate_price - How to get calculated price for a specific accommodation between 2 dates from the Camping.care API
-* https://camping.care/developer/accommodations/get_calculate_price
-=======
 * Example calculate_price - How to get calculated price for a 
 * specific accommodation between 2 dates from the Camping.care API
 * https://camping.care/developer/reservations/calculate_price
->>>>>>> a321d59eddf8665a34208ef5814c271a1625971f:samples/reservations/calculate_price.php
 */
 
 
@@ -23,7 +18,8 @@ try {
 
     $campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
-
+    $campingcare->set_api_key("xy/1JRxLIiwpNWfYnvIgHbx+gNUF34bS67mZ7uD+2lqys+reyMqWvUn/wNnNzs1818ZLf8DKVMJ3mP6f2mpU7Q==");
+    $campingcare->set_api_url("http://localhost:8084/api/v1");
     /*
     * Set your accommodation id. It can be found by using the function get_accommodations 
     * https://camping.care/developer/reservations/calculate_price
@@ -39,7 +35,7 @@ try {
     */
 
     $data = array();
-    $data['accommodation_id'] = 12 ; // Accommodation ID (required)
+    $data['accommodation_id'] = 37 ; // Accommodation ID (required)
     $data['arrival'] = "2018-06-10" ; //date YYYY-MM-DD
     $data['departure'] = "2018-06-17" ; //date YYYY-MM-DD
 
@@ -53,7 +49,7 @@ try {
     $calculated_price = $campingcare->calculate_price($data);
 
     /*
-    * In this example we print the oprions in json format on the page
+    * In this example we print the data in json format on the page
     */
 
     echo "GET calculated price for a accommodation between dates";

@@ -63,7 +63,7 @@ class campingcare_api {
 		$ch = curl_init($endpoint);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		
+
 		if($post){
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		};

@@ -20,8 +20,8 @@ try {
 
 	/*
     * Parameters:
-    * arrival:		The arrival date where reservations have to be inbetween
-    * departure:	The departure date where reservations have to be inbetween
+    * arrival:		The arrival date where reservations have to be inbetween (required)
+    * departure:	The departure date where reservations have to be inbetween (required)
     *
     */
 
@@ -37,7 +37,7 @@ try {
     $reservations = $campingcare->get_reservations($data); 
 
     /*
-    * In this example we print the oprions in json format on the page
+    * In this example we print the data in json format on the page
     */
 
     echo "Get reservations between dates";

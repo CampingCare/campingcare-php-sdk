@@ -40,6 +40,10 @@ try {
 
 	$accommodation = $campingcare->get_accommodation($id);
 
+	/*
+     * In this example we print the data in json format on the page
+    */
+
 	echo "Data from a single Accommodation";
 	echo "<pre>";
 	echo json_encode($accommodation, JSON_PRETTY_PRINT);

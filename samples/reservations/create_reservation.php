@@ -1,11 +1,32 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
-
-$campingcare = new campingcare_api ;
-$campingcare->set_api_key('YOUR API KEY');
+/*
+* Example create reservation - How to create a reservation calculated price for a from the Camping.care API
+* https://camping.care/developer/reservations/calculate_price
+*/
 
 try{
+
+    /*
+    * Initialize the Camping.care API SDK with your API key.
+    *
+    * See: https://camping.care/settings/api
+    */
+
+    require_once dirname(__FILE__) . '/../../src/campingcare/Autoloader.php';
+
+    $campingcare = new campingcare_api ;
+    $campingcare->set_api_key('YOUR API KEY');
+
+    /*
+    * Parameters:
+    *   arrival:            Arrival date for the reservation (YYYY-MM-DD) (required)
+    *   departure:          Departure date for the reservation (YYYY-MM-DD) (required)
+    *   accommodation_id:   Accommodation id for the reservation. The specific id from a accommodation can be get by the function get accommodations
+    *   persons:            The total number of persons in the reservation. (required)
+    *   age_table_input:    The age table input of persons for the reservation. The age table input is a JSON string. (required*) (*if age tables are available)
+    *   card_id:            The id of an discount card. This id can be found with this function. get cards.
+    */
 
     $data = array();
 
@@ -36,8 +57,18 @@ try{
     $data["card_id"] = 0 ;
 
 
+
+    /*
+    * All data is returned in a reservation object
+    * The structure can be found here: https://camping.care/developer/reservations/get_reservation.
+    */
     $created_reservation = $campingcare->create_reservation($data);
 
+    /*
+    * In this example we print the data in json format on the page
+    */
+
+    echo "Reservation";
     echo "<pre>";
     echo json_encode($created_reservation, JSON_PRETTY_PRINT);
     echo "</pre>";
