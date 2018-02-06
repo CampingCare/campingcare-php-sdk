@@ -5,49 +5,42 @@ include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
 $campingcare = new campingcare_api ;
 $campingcare->set_api_key('YOUR API KEY');
 
-// CREATE RESERVATION
 try{
+    
+    $id = 123 ; // this is the reservation id (Required)
 
     $data = array();
 
-    $data["arrival"] = "2018-04-10";
-    $data["departure"] = "2018-04-12";
+    // the contact_id id, this can be found with the function get_contacts (Required)
+    // if you don't have a contact id you can create a contact with Create contact
+    $data["contact_id"] = 124 ;
 
-    // get your accommodation_id with the api function 'Get accommodations'
-    $data["accommodation_id"] = 75 ;
-
-    // the total number of persons in this reservation
-    $data["persons"] = 5;
-
-    // if there are age tables availeble this data is required.
-    // More information about age tables can be found in the 'Get age tables' function
-    $data["age_table_input"] = array(
+    // if options are selected, sent them to the server
+    // More information about options can be found in the 'Get options' function
+    $data["options"] = array(
         array(
-            "id" => 29, // the id of the age table (Childeren for example)
-            "count" => 3 // The number of 'Childeren'
+            "id" => 1, // the id of the option (Babyseat for example)
+            "count" => 3 // The number of 'Babyseats'
         ),
 
         array(
-            "id" => 30, // the id of the age table (Adults for example)
-            "count" => 2 // The number of 'Adults'
+            "id" => 2, // the id of the option (Insurance for example)
+            "count" => 2 // The number of 'Insurances'
         )
     );
 
-    // Optional, the card id, if there is one
-    $data["card_id"] = 0 ;
+    // finished the reservation? Make it final by setting this variable to true
+    // the reservation will get the status 'pending', this means the reservation is done
+    // Once the reservation has the status 'pending' you're not able to update it anymore.
 
-    //$data["age_table_input"] = "";
-    //$data["discount_card"] = "";
+    // if finish is set to true, the contact_id is required
 
-    $created_reservation = $campingcare->create_reservation($data);
+    $data["finish"] = false ; 
 
-    echo "<pre>";
-    echo json_encode($created_reservation, JSON_PRETTY_PRINT);
-    echo "</pre>";
+    $reservation = $campingcare->update_reservation($id, $data);
 
+    echo $reservation->id ;
 
 }catch(Exception $e){
     echo "API call failed: " . htmlspecialchars($e->getMessage());
 }
-
-echo $api_key ;

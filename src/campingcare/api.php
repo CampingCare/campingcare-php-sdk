@@ -212,6 +212,21 @@ class campingcare_api {
 
 	}
 
+	function update_reservation($id, $data){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No reservation ID found");
+		};
+
+		$data['id'] = $id;
+		$data['options'] = json_encode($data['options']);
+
+		return $this->make_api_request("/reservations/".$id, $data, 'POST');
+
+	}
+
 	function get_prices($id){
 
 		$id = intval($id);
