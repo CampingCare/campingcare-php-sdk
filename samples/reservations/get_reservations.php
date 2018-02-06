@@ -26,8 +26,8 @@ try {
     */
 
 	$data = array();
-	$data["arrival"] = "2017-01-01"; // date YYYY-MM-DD  (required)
-	$data["departure"] = "2018-12-31";  // date YYYY-MM-DD (required)
+	$data["start_date"] = "2017-01-01"; // date YYYY-MM-DD  (required)
+	$data["end_date"] = "2018-12-31";  // date YYYY-MM-DD (required)
 
 	/*
 	* All data is returned in a reservation object
