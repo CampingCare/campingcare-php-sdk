@@ -18,8 +18,7 @@ try {
 
     $campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
-    $campingcare->set_api_key("xy/1JRxLIiwpNWfYnvIgHbx+gNUF34bS67mZ7uD+2lqys+reyMqWvUn/wNnNzs1818ZLf8DKVMJ3mP6f2mpU7Q==");
-    $campingcare->set_api_url("http://localhost:8084/api/v1");
+
     /*
     * Set your accommodation id. It can be found by using the function get_accommodations 
     * https://camping.care/developer/reservations/calculate_price

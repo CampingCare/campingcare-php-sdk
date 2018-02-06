@@ -163,7 +163,7 @@ class campingcare_api {
 
 	}
 
-	function get_options($id, $data){
+	function get_options($id){
 
 		$id = intval($id);
 
@@ -171,7 +171,7 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/accommodations/".$id."/options", $data);
+		return $this->make_api_request("/accommodations/".$id."/options");
 
 	}
 
@@ -191,6 +191,18 @@ class campingcare_api {
 		};
 
 		return $this->make_api_request("/reservations/".$id);
+
+	}
+
+	function get_reservation_options($id, $data){
+
+		$id = intval($id);
+
+		if(!$id){
+			throw new Exception("No reservation ID found");
+		};
+
+		return $this->make_api_request("/reservations/".$id."/options", $data);
 
 	}
 
@@ -220,7 +232,6 @@ class campingcare_api {
 			throw new Exception("No reservation ID found");
 		};
 
-		$data['id'] = $id;
 		$data['options'] = json_encode($data['options']);
 
 		return $this->make_api_request("/reservations/".$id, $data, 'POST');

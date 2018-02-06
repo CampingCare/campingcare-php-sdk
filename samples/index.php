@@ -20,6 +20,7 @@
 <h1>Prices</h1>
 <a href="/samples/reservations/get_reservations.php"><?php echo 'Get reservations' ; ?></a><br>
 <a href="/samples/reservations/get_reservation.php"><?php echo 'Get reservation' ; ?></a><br>
+<a href="/samples/reservations/get_reservation_options.php"><?php echo 'Get reservation options' ; ?></a><br>
 <a href="/samples/reservations/calculate_price.php"><?php echo 'Calculate price' ; ?></a><br>
 <a href="/samples/reservations/create_reservation.php"><?php echo 'Create reservation' ; ?></a><br>
 <a href="/samples/reservations/update_reservation.php"><?php echo 'Update reservation' ; ?></a>

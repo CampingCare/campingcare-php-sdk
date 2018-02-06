@@ -25,7 +25,7 @@ try{
     * http://camping.care/developer/reservations/get_reservations
     */
 
-    $id = 123 ; // this is the id of the reservation, not the reservation_id (Required)
+    $id = 657 ; // this is the id of the reservation, not the reservation_id (Required)
 
     /*
     * Parameters:
@@ -38,18 +38,18 @@ try{
 
     // the contact_id id, this can be found with the function get_contacts (Required)
     // if you don't have a contact id you can create a contact with Create contact
-    $data["contact_id"] = 124 ;
+    $data["contact_id"] = 192 ;
 
     // if options are selected, sent them to the server
     // More information about options can be found in the 'Get options' function
     $data["options"] = array(
         array(
-            "id" => 1, // the id of the option (Babyseat for example)
-            "count" => 3 // The number of 'Babyseats'
+            "id" => 51, // the id of the option (Babyseat for example)
+            "count" => 1 // The number of 'Babyseats'
         ),
 
         array(
-            "id" => 2, // the id of the option (Insurance for example)
+            "id" => 53, // the id of the option (Insurance for example)
             "count" => 2 // The number of 'Insurances'
         )
     );
