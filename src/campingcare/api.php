@@ -63,7 +63,7 @@ class campingcare_api {
 		$ch = curl_init($endpoint);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		
+
 		if($post){
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		};
@@ -200,7 +200,7 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/accommodations/calculate_price", $data, 'POST');
+		return $this->make_api_request("/reservations/calculate_price", $data, 'POST');
 
 	}
 

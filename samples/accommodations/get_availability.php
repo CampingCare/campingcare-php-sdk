@@ -25,7 +25,7 @@ try {
     * http://camping.care/developer/accommodations/get_accommodations
     */
 
-    $id =  1 ; // Accommodation ID (required)
+    $id =  37 ; // Accommodation ID (required)
 
     /*
     * Parameters:

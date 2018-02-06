@@ -20,8 +20,8 @@ try {
 
 	/*
     * Parameters:
-    * arrival:		The arrival date where reservations have to be inbetween
-    * departure:	The departure date where reservations have to be inbetween
+    * arrival:		The arrival date where reservations have to be inbetween (required)
+    * departure:	The departure date where reservations have to be inbetween (required)
     *
     */
 
