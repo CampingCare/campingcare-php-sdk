@@ -200,7 +200,7 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/accommodations/calculate_price", $data, 'POST');
+		return $this->make_api_request("/reservations/calculate_price", $data, 'POST');
 
 	}
 
