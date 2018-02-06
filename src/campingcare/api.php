@@ -287,7 +287,7 @@ class campingcare_api {
 		if(!$id){
 			throw new Exception("No contact ID found");
 		};
-		return $this->make_api_request("/contacts". $id);
+		return $this->make_api_request("/contacts/". $id);
 
 	}
 
