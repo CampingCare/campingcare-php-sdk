@@ -126,12 +126,6 @@ class campingcare_api {
 
 	}
 
-	function get_vat_groups(){
-
-		return $this->make_api_request("/park/vat_groups");
-
-	}
-
 	function get_accommodations(){
 
 		return $this->make_api_request("/accommodations");
@@ -159,18 +153,6 @@ class campingcare_api {
 		};
 
 		return $this->make_api_request("/accommodations/".$id."/availability", $data);
-
-	}
-
-	function get_calculate_price($id, $data){
-
-		$id = intval($id);
-
-		if(!$id){
-			throw new Exception("No accommodation ID found");
-		};
-
-		return $this->make_api_request("/accommodations/".$id."/calculate_price", $data);
 
 	}
 
@@ -205,7 +187,19 @@ class campingcare_api {
 
 	}
 
+	function calculate_price($data){
+
+		if(!$data['accommodation_id']){
+			throw new Exception("No accommodation ID found");
+		};
+
+		return $this->make_api_request("/accommodations/calculate_price", $data);
+
+	}
+
 	function create_reservation($data){
+
+		$data['age_table_input'] = json_encode($data['age_table_input']);
 
 		return $this->make_api_request("/reservations", $data);
 
@@ -237,7 +231,7 @@ class campingcare_api {
 
 	function get_invoices($data){
 
-		return $this->make_api_request("/invoicing/", $data);
+		return $this->make_api_request("/invoicing", $data);
 
 	}
 
@@ -252,9 +246,16 @@ class campingcare_api {
 
 	}
 
+
+	function get_vat_groups(){
+
+		return $this->make_api_request("/invoicing/vat_groups");
+
+	}
+
 	function get_contacts($data){
 
-		return $this->make_api_request("/contacts/", $data);
+		return $this->make_api_request("/contacts", $data);
 
 	}
 

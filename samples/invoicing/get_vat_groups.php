@@ -1,7 +1,7 @@
 <?php
 /*
 * Example get vat groups - How to get vat group information from the Camping.care API
-* https://camping.care/developer/park/get_vat_groups
+* https://camping.care/developer/invoicing/get_vat_groups
 */
 try {
 
@@ -25,7 +25,7 @@ try {
 
 	/*
 	* All data is returned in a vat groups opject
-	* The structure can be found here: https://camping.care/developer/park/get_vat_groups.
+	* The structure can be found here: https://camping.care/developer/invoicing/get_vat_groups.
 	*/
     $vat_groups = $campingcare->get_vat_groups();
 
