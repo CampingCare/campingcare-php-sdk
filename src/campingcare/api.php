@@ -26,7 +26,7 @@
  * DAMAGE.
  *
  * @license     Berkeley Software Distribution License (BSD-License 2) http://www.opensource.org/licenses/bsd-license.php
- * @author      Boekanders B.V. <info@mollie.com>
+ * @author      Boekanders B.V. <support@camping.care>
  * @copyright   Boekanders B.V.
  * @link        https://camping.care
  */
@@ -47,19 +47,26 @@ class campingcare_api {
 	}
 
 	// make a request with the an endpoint at campingcare
-	function make_api_request($endpoint, $post = array()){
+	function make_api_request($endpoint, $data = array(), $type = 'get'){
+
+		$post = false ;
 
 		$authorization = "Authorization: Bearer ".$this->api_key ;
+		$endpoint = $this->api_url.$endpoint ;
 
-		// set post fields
-		// $post = [
-		//     'page' => 1
-		// ];
+		if($type == 'get'){
+			$endpoint = $endpoint."?".http_build_query($data);
+		}else{
+			$post = true ;
+		};
 
-		$ch = curl_init($this->api_url.$endpoint);
+		$ch = curl_init($endpoint);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+		
+		if($post){
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		};
 
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0); 
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
@@ -126,12 +133,6 @@ class campingcare_api {
 
 	}
 
-	function get_vat_groups(){
-
-		return $this->make_api_request("/park/vat_groups");
-
-	}
-
 	function get_accommodations(){
 
 		return $this->make_api_request("/accommodations");
@@ -159,18 +160,6 @@ class campingcare_api {
 		};
 
 		return $this->make_api_request("/accommodations/".$id."/availability", $data);
-
-	}
-
-	function get_calculate_price($id, $data){
-
-		$id = intval($id);
-
-		if(!$id){
-			throw new Exception("No accommodation ID found");
-		};
-
-		return $this->make_api_request("/accommodations/".$id."/calculate_price", $data);
 
 	}
 
@@ -205,12 +194,23 @@ class campingcare_api {
 
 	}
 
-	function create_reservation($data){
+	function calculate_price($data){
 
-		return $this->make_api_request("/reservations/create/", $data);
+		if(!$data['accommodation_id']){
+			throw new Exception("No accommodation ID found");
+		};
+
+		return $this->make_api_request("/accommodations/calculate_price", $data, 'POST');
 
 	}
 
+	function create_reservation($data){
+
+		$data['age_table_input'] = json_encode($data['age_table_input']);
+
+		return $this->make_api_request("/reservations", $data, 'POST');
+
+	}
 
 	function get_prices($id){
 
@@ -237,7 +237,7 @@ class campingcare_api {
 
 	function get_invoices($data){
 
-		return $this->make_api_request("/invoicing/", $data);
+		return $this->make_api_request("/invoicing", $data);
 
 	}
 
@@ -252,9 +252,16 @@ class campingcare_api {
 
 	}
 
+
+	function get_vat_groups(){
+
+		return $this->make_api_request("/invoicing/vat_groups");
+
+	}
+
 	function get_contacts($data){
 
-		return $this->make_api_request("/contacts/", $data);
+		return $this->make_api_request("/contacts", $data);
 
 	}
 
@@ -265,7 +272,13 @@ class campingcare_api {
 		if(!$id){
 			throw new Exception("No contact ID found");
 		};
-		return $this->make_api_request("/contacts/". $id);
+		return $this->make_api_request("/contacts". $id);
+
+	}
+
+	function create_contact($data){
+
+		return $this->make_api_request("/contacts", $data, 'POST');
 
 	}
 

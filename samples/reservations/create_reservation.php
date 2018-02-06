@@ -5,7 +5,6 @@ include_once($_SERVER['DOCUMENT_ROOT']. '../src/CampingCare/Autoloader.php');
 $campingcare = new campingcare_api ;
 $campingcare->set_api_key('YOUR API KEY');
 
-// CREATE RESERVATION
 try{
 
     $data = array();
@@ -36,8 +35,6 @@ try{
     // Optional, the card id, if there is one
     $data["card_id"] = 0 ;
 
-    //$data["age_table_input"] = "";
-    //$data["discount_card"] = "";
 
     $created_reservation = $campingcare->create_reservation($data);
 
