@@ -19,21 +19,16 @@ try{
 	$campingcare->set_api_key('YOUR API KEY');
 
 
-    /*
-    * Parameters:
-    *   filter    		The filter can be used to filter the contact list on name, you can use the '%' to get all contacts (required)
-    *
-    */
-
-	$data = array();
-	$data["filter"] = "%"; // start characters of search string (required)
+    $data = array();
+    $data["offset"] = 1 ; // start with the first dataset
+    $data["limit"] = 100 ; // returns 100 contacts at the time, max. is 1000
 
 	/*
      * All data is returned in a contact opject
      * The structure can be found here: https://camping.care/developer/contacts/get_contact.
      */
 
-	$contacts= $campingcare->get_contacts($data);
+    $contacts = $campingcare->get_contacts($data);
 
 	/*
     * In this example we print the data in json format on the page
