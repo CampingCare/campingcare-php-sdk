@@ -33,7 +33,7 @@ try {
     $accommodations = $campingcare->get_accommodations();
 
     /*
-     * In this example we print the oprions in json format on the page
+     * In this example we print the data in json format on the page
     */
     echo "List of accommodations";
     echo "<pre>";

@@ -30,7 +30,7 @@ try {
     $vat_groups = $campingcare->get_vat_groups();
 
     /*
-     * In this example we print the oprions in json format on the page
+     * In this example we print the data in json format on the page
     */
     echo "Vat group data";
     echo "<pre>";
