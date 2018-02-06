@@ -47,19 +47,26 @@ class campingcare_api {
 	}
 
 	// make a request with the an endpoint at campingcare
-	function make_api_request($endpoint, $post = array()){
+	function make_api_request($endpoint, $data = array(), $type = 'get'){
+
+		$post = false ;
 
 		$authorization = "Authorization: Bearer ".$this->api_key ;
+		$endpoint = $this->api_url.$endpoint ;
 
-		// set post fields
-		// $post = [
-		//     'page' => 1
-		// ];
+		if($type == 'get'){
+			$endpoint = $endpoint."?".http_build_query($data);
+		}else{
+			$post = true ;
+		};
 
-		$ch = curl_init($this->api_url.$endpoint);
+		$ch = curl_init($endpoint);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+		
+		if($post){
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		};
 
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0); 
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds
@@ -193,7 +200,7 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/accommodations/calculate_price", $data);
+		return $this->make_api_request("/accommodations/calculate_price", $data, 'POST');
 
 	}
 
@@ -201,10 +208,9 @@ class campingcare_api {
 
 		$data['age_table_input'] = json_encode($data['age_table_input']);
 
-		return $this->make_api_request("/reservations", $data);
+		return $this->make_api_request("/reservations", $data, 'POST');
 
 	}
-
 
 	function get_prices($id){
 
@@ -272,7 +278,7 @@ class campingcare_api {
 
 	function create_contact($data){
 
-		return $this->make_api_request("/contacts", $data);
+		return $this->make_api_request("/contacts", $data, 'POST');
 
 	}
 
