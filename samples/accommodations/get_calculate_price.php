@@ -1,15 +1,14 @@
 <?php
 
 /*
-* Example get calculate_price - How to get calculated price for a 
-* specific accommodation between 2 dates from the Camping.care API
+* Example get calculate_price - How to get calculated price for a specific accommodation between 2 dates from the Camping.care API
 * https://camping.care/developer/accommodations/get_calculate_price
 */
 
 
 try {
 
-     /*
+    /*
     * Initialize the Camping.care API SDK with your API key.
     *
     * See: https://camping.care/settings/api
