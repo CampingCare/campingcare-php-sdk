@@ -19,7 +19,6 @@ try {
     $campingcare = new campingcare_api ;
 	$campingcare->set_api_key('YOUR API KEY');
 
-
 	/*
     * Set your accommodation id. It can be found by using the function get_accommodations 
     * http://camping.care/developer/accommodations/get_accommodations
@@ -27,18 +26,20 @@ try {
 
 	$accommodation_id = 1; // Accommodation id here (required)
 
-	/*
+	 /*
     * Parameters:
-    * None
+    * language : ISO language code (optional)
     *
     */
+    $data = array();
+    $data['language'] = "de" ;
 
 	/*
 	* All data is returned in a price object
 	* The structure can be found here: https://camping.care/developer/prices/get_price.
 	*/
 
-    $prices = $campingcare->get_prices($accommodation_id); 
+    $prices = $campingcare->get_prices($accommodation_id, $data); 
 
     /*
     * In this example we print the data in json format on the page

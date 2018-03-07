@@ -26,11 +26,13 @@ try{
 
 	$price_id =  1; // price id here (required)
 
-	/*
+	 /*
     * Parameters:
-    * None
+    * language : ISO language code (optional)
     *
     */
+    $data = array();
+    $data['language'] = "de" ;
 
 	/*
 	* All data is returned in a price object
@@ -38,7 +40,7 @@ try{
 	*/
 
 
-    $single_price = $campingcare->get_price($price_id); 
+    $single_price = $campingcare->get_price($price_id, $data); 
 
     /*
     * In this example we print the data in json format on the page

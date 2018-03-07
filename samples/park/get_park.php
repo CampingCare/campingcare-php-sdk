@@ -17,19 +17,22 @@ try {
 	$campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
 
+
 	/*
     * Parameters:
-    * None
+    * language : ISO language code (optional)
     *
     */
-
+    $data = array();
+    $data['language'] = "de" ;
 
 
 	/*
 	* All data is returned in a park opject
 	* The structure can be found here: https://camping.care/developer/park/get_park.
 	*/
-    $park = $campingcare->get_park();
+
+    $park = $campingcare->get_park($data);
 
 
     /*

@@ -5,7 +5,6 @@
 <a href="/samples/park/get_park.php"><?php echo 'Get Park' ; ?></a><br>
 <a href="/samples/park/get_age_tables.php"><?php echo 'Get age tables' ; ?></a><br>
 <a href="/samples/park/get_cards.php"><?php echo 'Get cards' ; ?></a><br>
-<a href="/samples/park/get_vat_groups.php"><?php echo 'Get vat groups' ; ?></a><br>
 
 <h1>Accommodations</h1>
 <a href="/samples/accommodations/get_accommodations.php"><?php echo 'Get accommodations' ; ?></a><br>
@@ -28,6 +27,7 @@
 <h1>Invoices</h1>
 <a href="/samples/invoicing/get_invoices.php"><?php echo 'Get invoices' ; ?></a><br>
 <a href="/samples/invoicing/get_invoice.php"><?php echo 'Get invoice' ; ?></a><br>
+<a href="/samples/invoicing/get_vat_groups.php"><?php echo 'Get vat groups' ; ?></a><br>
 
 <h1>Contacts</h1>
 <a href="/samples/contacts/get_contacts.php"><?php echo 'Get contacts' ; ?></a><br>

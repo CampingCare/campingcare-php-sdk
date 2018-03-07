@@ -27,9 +27,12 @@ try {
 
 	/*
     * Parameters:
-    * None
+    * language : ISO language code (optional)
     *
     */
+
+    $data = array();
+    $data['language'] = "de" ;
 
 
 
@@ -38,7 +41,7 @@ try {
 	* The structure can be found here: https://camping.care/developer/accommodations/get_accommodation.
 	*/
 
-	$accommodation = $campingcare->get_accommodation($id);
+	$accommodation = $campingcare->get_accommodation($id, $data);
 
 	/*
      * In this example we print the data in json format on the page

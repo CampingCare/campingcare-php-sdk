@@ -17,25 +17,27 @@ try {
     $campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
 
+
     /*
     * Set your accommodation id. It can be found by using the function get_accommodations 
     * http://camping.care/developer/accommodations/get_accommodations
     */
 
-    $id =  37 ; // Accommodation ID (required)
+    $id =  74 ; // Accommodation ID (required)
 
-    /*
+     /*
     * Parameters:
-    *   None     Reservation id for getting options for a specific reservation (optional)
+    * language : ISO language code (optional)
     *
     */
-
+    $data = array();
+    $data['language'] = "de" ;
 
     /*
      * All data is returned in a option opject
      * The structure can be found here: https://camping.care/developer/accommodations/get_options.
      */
-    $options = $campingcare->get_options($id);
+    $options = $campingcare->get_options($id, $data);
 
 
     /*

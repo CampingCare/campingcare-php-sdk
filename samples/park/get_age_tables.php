@@ -18,12 +18,13 @@ try {
     $campingcare = new campingcare_api ;
 	$campingcare->set_api_key('YOUR API KEY');
 
-	/*
+    /*
     * Parameters:
-    * None
+    * language : ISO language code (optional)
     *
     */
-
+    $data = array();
+    $data['language'] = "de" ;
 
 
 	/*
@@ -31,7 +32,7 @@ try {
 	* The structure can be found here: https://camping.care/developer/park/get_age_tables.
 	*/
 
-    $age_tables = $campingcare->get_age_tables();
+    $age_tables = $campingcare->get_age_tables($data);
 
 	/*
      * In this example we print the data in json format on the page

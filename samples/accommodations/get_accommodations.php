@@ -20,17 +20,19 @@ try {
 
 	/*
     * Parameters:
-    * None
+    * language : ISO language code (optional)
     *
     */
 
-	/*
-	* All data is returned in a accommodations object
-	* The structure can be found here: https://camping.care/developer/accommodations/get_accommodations.
-	*/
+    $data = array();
+    $data['language'] = "de" ;
 
+    /*
+    * All data is returned in a accommodations object
+    * The structure can be found here: https://camping.care/developer/accommodations/get_accommodations.
+    */
 
-    $accommodations = $campingcare->get_accommodations();
+    $accommodations = $campingcare->get_accommodations($data);
 
     /*
      * In this example we print the data in json format on the page

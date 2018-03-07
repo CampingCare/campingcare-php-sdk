@@ -19,7 +19,6 @@ try {
 
     $campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
-
     /*
     * Set your accommodation id. It can be found by using the function get_accommodations 
     * http://camping.care/developer/accommodations/get_accommodations

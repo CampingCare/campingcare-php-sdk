@@ -16,6 +16,9 @@ try {
 
     $campingcare = new campingcare_api ;
     $campingcare->set_api_key('YOUR API KEY');
+    $campingcare->set_api_key('9Y3RTnEEMMAeytF75fmpvnPdr+oIqYuXIg0WaQrMhF9RSEk61qkds5rDeS0fUI+qz72qCwvuFOydmQT3u85y5A==');
+    $campingcare->set_api_url('http://localhost:8084/api/v1');
+
 
 
     /*

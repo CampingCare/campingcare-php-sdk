@@ -21,7 +21,7 @@ To use the Camping.care PHP SDK, the following things are required:
 
 By far the easiest way to install the Camping.care PHP SDK is to require it with [Composer](http://getcomposer.org/doc/00-intro.md).
 
-    $ composer require CampingCare/campingcare-php-sdk:master
+    $ composer require CampingCare/campingcare-php-sdk:dev-master
 
     {
         "require": {

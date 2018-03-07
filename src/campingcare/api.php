@@ -115,31 +115,31 @@ class campingcare_api {
 
 	}
 
-	function get_park(){
+	function get_park($data = array()){
 
-		return $this->make_api_request("/park");
-
-	}
-
-	function get_age_tables(){
-
-		return $this->make_api_request("/park/age_tables");
+		return $this->make_api_request("/park", $data);
 
 	}
 
-	function get_cards(){
+	function get_age_tables($data = array()){
 
-		return $this->make_api_request("/park/cards");
-
-	}
-
-	function get_accommodations(){
-
-		return $this->make_api_request("/accommodations");
+		return $this->make_api_request("/park/age_tables", $data);
 
 	}
 
-	function get_accommodation($id){
+	function get_cards($data = array()){
+
+		return $this->make_api_request("/park/cards", $data);
+
+	}
+
+	function get_accommodations($data){
+
+		return $this->make_api_request("/accommodations", $data);
+
+	}
+
+	function get_accommodation($id, $data){
 
 		$id = intval($id);
 
@@ -147,7 +147,7 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/accommodations/".$id);
+		return $this->make_api_request("/accommodations/".$id, $data);
 
 	}
 
@@ -163,7 +163,7 @@ class campingcare_api {
 
 	}
 
-	function get_options($id){
+	function get_options($id, $data = array()){
 
 		$id = intval($id);
 
@@ -171,7 +171,7 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/accommodations/".$id."/options");
+		return $this->make_api_request("/accommodations/".$id."/options", $data);
 
 	}
 
@@ -238,7 +238,7 @@ class campingcare_api {
 
 	}
 
-	function get_prices($id){
+	function get_prices($id, $data = array()){
 
 		$id = intval($id);
 
@@ -246,18 +246,18 @@ class campingcare_api {
 			throw new Exception("No accommodation ID found");
 		};
 
-		return $this->make_api_request("/prices/".$id);
+		return $this->make_api_request("/prices/".$id, $data);
 
 	}
 
-	function get_price($id){
+	function get_price($id, $data = array()){
 
 		$id = intval($id);
 
 		if(!$id){
 			throw new Exception("No price ID found");
 		};
-		return $this->make_api_request("/price/". $id);
+		return $this->make_api_request("/price/". $id, $data);
 
 	}
 
@@ -279,9 +279,9 @@ class campingcare_api {
 	}
 
 
-	function get_vat_groups(){
+	function get_vat_groups($data = array()){
 
-		return $this->make_api_request("/invoicing/vat_groups");
+		return $this->make_api_request("/invoicing/vat_groups", $data);
 
 	}
 

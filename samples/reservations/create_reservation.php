@@ -77,5 +77,3 @@ try{
 }catch(Exception $e){
     echo "API call failed: " . htmlspecialchars($e->getMessage());
 }
-
-echo $api_key ;
