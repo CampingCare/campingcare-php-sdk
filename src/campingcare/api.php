@@ -133,13 +133,13 @@ class campingcare_api {
 
 	}
 
-	function get_accommodations($data){
+	function get_accommodations($data = array()){
 
 		return $this->make_api_request("/accommodations", $data);
 
 	}
 
-	function get_accommodation($id, $data){
+	function get_accommodation($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -151,7 +151,7 @@ class campingcare_api {
 
 	}
 
-	function get_availability($id, $data){
+	function get_availability($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -163,7 +163,7 @@ class campingcare_api {
 
 	}
 
-	function get_options($id, $data = array()){
+	function get_options($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -176,13 +176,13 @@ class campingcare_api {
 	}
 
 
-	function get_reservations($data){
+	function get_reservations($data = array()){
 
 		return $this->make_api_request("/reservations", $data);
 
 	}
 
-	function get_reservation($id){
+	function get_reservation($id = 0){
 
 		$id = intval($id);
 
@@ -194,7 +194,7 @@ class campingcare_api {
 
 	}
 
-	function get_reservation_options($id, $data){
+	function get_reservation_options($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -206,7 +206,7 @@ class campingcare_api {
 
 	}
 
-	function calculate_price($data){
+	function calculate_price($data = array()){
 
 		if(!$data['accommodation_id']){
 			throw new Exception("No accommodation ID found");
@@ -216,7 +216,7 @@ class campingcare_api {
 
 	}
 
-	function create_reservation($data){
+	function create_reservation($data = array()){
 
 		$data['age_table_input'] = json_encode($data['age_table_input']);
 
@@ -224,7 +224,7 @@ class campingcare_api {
 
 	}
 
-	function update_reservation($id, $data){
+	function update_reservation($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -238,7 +238,7 @@ class campingcare_api {
 
 	}
 
-	function get_prices($id, $data = array()){
+	function get_prices($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -250,7 +250,7 @@ class campingcare_api {
 
 	}
 
-	function get_price($id, $data = array()){
+	function get_price($id = 0, $data = array()){
 
 		$id = intval($id);
 
@@ -261,13 +261,13 @@ class campingcare_api {
 
 	}
 
-	function get_invoices($data){
+	function get_invoices($data = array()){
 
 		return $this->make_api_request("/invoicing", $data);
 
 	}
 
-	function get_invoice($id){
+	function get_invoice($id = 0){
 
 		$id = intval($id);
 
@@ -285,13 +285,13 @@ class campingcare_api {
 
 	}
 
-	function get_contacts($data){
+	function get_contacts($data = array()){
 
 		return $this->make_api_request("/contacts", $data);
 
 	}
 
-	function get_contact($id){
+	function get_contact($id = 0){
 
 		$id = intval($id);
 
@@ -302,7 +302,7 @@ class campingcare_api {
 
 	}
 
-	function create_contact($data){
+	function create_contact($data = array()){
 
 		return $this->make_api_request("/contacts", $data, 'POST');
 
